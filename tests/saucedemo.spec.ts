@@ -1,6 +1,7 @@
 ﻿import { test, expect } from '@playwright/test';
 
-test.describe('SauceDemo - Guest checkout', () => {\
+test.describe('SauceDemo - Guest checkout', () => {
+
   test('Guest checkout - เข้าหน้า checkout โดยไม่ล็อกอิน', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/checkout-step-one.html');
     await expect(page).toHaveURL('https://www.saucedemo.com/');
@@ -11,7 +12,6 @@ test.describe('SauceDemo - Guest checkout', () => {\
 });
 
 test.describe('SauceDemo - ทดสอบ Checkout', () => {
-  // เข้าสู่ระบบและเพิ่มสินค้าก่อนเริ่มแต่ละเคส
   test.beforeEach(async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('[data-test="username"]').fill('standard_user');
@@ -44,7 +44,6 @@ test.describe('SauceDemo - ทดสอบ Checkout', () => {
 
   test('TC-CKO-012 - กด Finish แล้วสั่งซื้อสำเร็จ', async ({ page }) => {
     await page.locator('[data-test="checkout"]').click();
-    // ข้อมูลผู้ซื้อตาม test case ใน Excel
     await page.locator('[data-test="firstName"]').fill('omar');
     await page.locator('[data-test="lastName"]').fill('abdo');
     await page.locator('[data-test="postalCode"]').fill('12345');
